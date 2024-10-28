@@ -1,0 +1,82 @@
+% Nejprve uvedeme tridu dokumentu s volbami
+\documentclass[czech,bachelor]{diploma}
+% Dalsi doplnujici baliky maker
+\usepackage[autostyle=true,czech=quotes]{csquotes} % korektni sazba uvozovek, podpora pro balik biblatex
+\usepackage[backend=biber, style=iso-numeric, alldates=iso]{biblatex} % bibliografie
+\usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
+\usepackage{subfig} % makra pro "podobrazky" a "podtabulky"
+\usepackage[cpp]{diplomalst}
+
+% Zadame pozadovane vstupy pro generovani titulnich stran.
+\ThesisAuthor{Tobias Janča}
+
+\ThesisSupervisor{Ing. Filip Šigut}
+
+\CzechThesisTitle{Space Invaders: Moderní 2D arkádová hra}
+
+\EnglishThesisTitle{Modern Arcade Shooter Inspired by Space Invaders}
+
+\SubmissionYear{2025}
+
+\ThesisAssignmentFileName{FictiveThesisAssignment.pdf}
+
+% Pokud nechceme nikomu dekovat makro zapoznamkujeme.
+\Acknowledgement{Rád bych poděkoval svému vedoucímu bakalářské práce Filipovi za to, že mě nezabil za celou dobu.}
+
+\CzechAbstract{Tahleta hra je o pygame lol.}
+
+\CzechKeywords{bakalářská práce, pygame, 2D hra, arkádová hra}
+
+\EnglishAbstract{Very gut weather today}
+
+\EnglishKeywords{bachelor thesis, pygame, 2D game, arcade game}
+
+\AddAcronym{DVD}{Digital Versatile Disc}
+\AddAcronym{TNT}{Trinitrotoluen}
+\AddAcronym{UML}{Unified Modeling Language}
+\AddAcronym{HTML}{Hyper Text Markup Language}
+\AddAcronym{TUG}{\TeX{} Users Group}
+
+\addbibresource{biblatex-examples.bib}
+\addbibresource{coffee.bib}
+
+% Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
+\newcolumntype{d}[1]{D{,}{,}{#1}}
+
+
+% Zacatek dokumentu
+\begin{document}
+
+% Nechame vysazet titulni strany.
+\MakeTitlePages
+
+% Jsou v praci obrazky? Pokud ano vysazime jejich seznam a odstrankujeme.
+% Pokud ne smazeme nasledujici dve makra.
+\listoffigures
+\clearpage
+
+% Jsou v praci tabulky? Pokud ano vysazime jejich seznam a odstrankujeme.
+% Pokud ne smazeme nasledujici dve makra.
+\listoftables
+\clearpage
+
+% A nasleduje text zaverecne prace.
+\input{Chapters/Introduction.tex}
+\input{Chapters/SampleChapter1.tex}
+\input{Chapters/SampleChapter2.tex}
+\input{Chapters/TechnicalDetails.tex}
+\input{Chapters/Conclusion.tex}
+
+% Seznam literatury
+\printbibliography[title={Literatura}, heading=bibintoc]
+
+% Prilohy
+\appendix
+\input{Chapters/Appendix1.tex}
+\input{Chapters/Appendix2.tex}
+
+% Priloha vlozena primo do hlavniho LaTeX souboru. Ne vsechny prilohy je nutne mit ve zvlastnich souborech.
+\chapter{Dlouhý zdrojový kód}
+\lstinputlisting[label=src:CppExternal,caption={Dlouhý zdrojový kód v jazyce C++ načtený s externího souboru}]{SourceCodes/ArraySortingAlgorithms.cpp}
+
+\end{document}
